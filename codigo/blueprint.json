@@ -1,0 +1,56 @@
+{
+	"name": "Mercado69",
+	"flow": [
+		{
+			"id": 1,
+			"module": "gateway:CustomWebHook",
+			"version": 1,
+			"parameters": { "hook": 3046962, "maxResults": 1 },
+			"mapper": {},
+			"metadata": {
+				"designer": { "x": 0, "y": 0 },
+				"interface": [
+					{ "name": "demanda", "type": "text", "label": "demanda" },
+					{ "name": "oferta", "type": "text", "label": "oferta" },
+					{ "name": "precio", "type": "text", "label": "precio" },
+					{ "name": "estado", "type": "text", "label": "estado" }
+				],
+				"parameters": [
+					{ "name": "hook", "type": "hook:gateway-webhook", "label": "Webhook", "required": true },
+					{ "name": "maxResults", "type": "number", "label": "Maximum number of results" }
+				]
+			}
+		},
+		{
+			"id": 2,
+			"module": "telegram:SendReplyMessage",
+			"version": 1,
+			"parameters": { "__IMTCONN__": 12255632 },
+			"mapper": {
+				"text": "ALERTA DE ESCASEZ\nDemanda: {{1.demanda}}\nOferta: {{1.oferta}}\nPrecio de equilibrio: ${{1.precio}} por kg\nLa demanda supera a la oferta: el precio sube.",
+				"chatId": "TU_CHAT_ID",
+				"parseMode": "",
+				"replyMarkup": "",
+				"messageThreadId": "",
+				"replyToMessageId": "",
+				"replyMarkupAssembleType": "reply_markup_enter"
+			},
+			"metadata": {
+				"designer": { "x": 300, "y": 0 },
+				"parameters": [
+					{ "name": "__IMTCONN__", "type": "account:telegram", "label": "Connection", "required": true }
+				]
+			}
+		}
+	],
+	"metadata": {
+		"instant": true,
+		"version": 1,
+		"designer": { "orphans": [] },
+		"scenario": {
+			"dlq": false, "slots": null, "dataloss": false, "maxErrors": 3, "autoCommit": true,
+			"roundtrips": 1, "sequential": false, "confidential": false, "freshVariables": false,
+			"autoCommitTriggerLast": true
+		}
+	}
+}
