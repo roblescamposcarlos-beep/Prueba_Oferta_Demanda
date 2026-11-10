@@ -54,6 +54,16 @@ Flujo: **Potenciómetros → Arduino UNO R4 WiFi (calcula y muestra el precio) �
 
 Se ejecuta **Immediately** (cada vez que llega una alerta). El Chat ID del blueprint está reemplazado por `TU_CHAT_ID`, y el token del bot no se incluye en ningún archivo.
 
+### Evidencia de funcionamiento
+
+Monitor Serie (9600 baudios) con la demanda al máximo y la oferta al mínimo: el precio llega a $460.
+
+![Monitor Serie con demanda 90, oferta 10 y precio $460](imagenes/monitor_serie.png)
+
+Alertas de escasez recibidas en Telegram desde el bot:
+
+![Alertas de escasez en el chat de Telegram](imagenes/alertas_telegram.png)
+
 ## 4. Experimentos de mercado
 
 La demanda y la oferta van de 10 a 90 y el precio sale de `((150 + demanda − oferta) / 2) × 4`.
