@@ -37,6 +37,8 @@ Flujo: **Potenciómetros → Arduino UNO R4 WiFi (calcula y muestra el precio) �
 | Potenciómetro de **demanda** (10 kΩ) | pata izquierda a GND, pata central a **A0**, pata derecha a 5V |
 | Potenciómetro de **oferta** (10 kΩ) | pata izquierda a GND, pata central a **A1**, pata derecha a 5V |
 
+![Circuito armado: Arduino UNO R4 WiFi con dos potenciómetros en la protoboard y el precio en la matriz LED](imagenes/circuito_armado.jpg)
+
 ### El código ([`codigo/Mercado.ino`](codigo/Mercado.ino))
 1. Se conecta al WiFi (2.4 GHz) y muestra "WiFi" y luego "OK" en la matriz LED.
 2. Cada 0.5 s lee los dos potenciómetros y convierte cada lectura (0–1023) a una escala de 10 a 90 con `map()`: eso es la **demanda** y la **oferta**.
